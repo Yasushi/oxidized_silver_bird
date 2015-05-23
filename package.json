@@ -1,0 +1,12 @@
+{
+  "name": "oxidized_silver_bird",
+  "version": "1.0.0",
+  "description": "Oxidized Silver Bird",
+  "author": "Yasushi Abe",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.8.11",
+    "gulp-crx": "pavelvanecek/gulp-crx"
+  }
+}

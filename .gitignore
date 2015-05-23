@@ -7,3 +7,5 @@
 .redcar
 secret_keys.js
 analytics.js
+/node_modules/
+/target/
