@@ -1,12 +1,12 @@
 {
-    "name": "Silver Bird",
-    "version": "1.9.10.2",
+    "name": "Oxidized Silver Bird",
+    "version": "1",
     "manifest_version": 2,
-    "description": "__MSG_extDescription__",
+    "description": "",
     "default_locale": "en",
     "browser_action": {
         "default_icon": "img/icon19.png",
-        "default_title": "Silver Bird",
+        "default_title": "Oxidized Silver Bird",
         "default_popup": "popup.html?popup"
     },
     "background": {
@@ -23,7 +23,7 @@
         "48": "img/icon48.png",
         "128": "img/icon128.png"
     },
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "content_security_policy": "script-src 'self'; object-src 'self'",
     "content_scripts": [
         {
             "matches": [
@@ -36,18 +36,7 @@
                 "lib/3rdparty/jquery.js",
                 "lib/oauth_authorizer.js"
             ]
-        },
-        {
-            "matches": [
-                "http://identi.ca/api/oauth/authorize",
-                "https://identi.ca/api/oauth/authorize"
-            ],
-            "js": [
-                "lib/3rdparty/jquery.js",
-                "lib/oauth_identica_authorizer.js"
-            ]
         }
     ],
-    "options_page": "options.html",
-    "update_url": "http://clients2.google.com/service/update2/crx"
+    "options_page": "options.html"
 }

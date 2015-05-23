@@ -1,18 +1,12 @@
-## Silver Bird ##
+## Oxidized Silver Bird ##
 
 1. What is it?
 
-    Silver Bird is a general purpose Chromium twitter extension.
+    Oxidized Silver Bird is a fork of [Silver Bird](https://github.com/cezarsa/silver_bird).
 
 2. Installing
 
-    Get it at the [chrome web store](https://chrome.google.com/webstore/detail/encaiiljifbdbjlphpgpiimidegddhic)
-
-    or [Download it directly from GitHub](https://github.com/cezarsa/silver_bird/downloads)
-
 3. Compatibility
-
-    It works on all Chrome distribution channels: Stable, Beta and Dev.
 
 4. Features
 
@@ -29,5 +23,3 @@
     This project uses the very simple and permissive MIT license. Check the LICENSE file.
 
 6. Credits
-
-    [Chiara De Liberato](http://www.chiaradeliberato.it/) - Italian translation

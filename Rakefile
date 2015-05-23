@@ -40,8 +40,8 @@ class ExtensionInfo
 end
 
 module Constants
-  KEY_FILE = "../silver_bird.pem"
-  BETA_KEY_FILE = "../silver_bird_beta.pem"
+  KEY_FILE = "../oxidized_silver_bird.pem"
+  BETA_KEY_FILE = "../oxidized_silver_bird_beta.pem"
   IGNORE_DIR = /\.git/
   IGNORE_FILE = /Rakefile|\.gitignore|.*\.crx$|.*\.zip$/
   TEMP_PACKAGE_FILE = "/tmp/tmp_package"
