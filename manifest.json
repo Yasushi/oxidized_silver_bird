@@ -24,19 +24,5 @@
         "128": "img/icon128.png"
     },
     "content_security_policy": "script-src 'self'; object-src 'self'",
-    "content_scripts": [
-        {
-            "matches": [
-                "http://twitter.com/oauth/authorize",
-                "https://twitter.com/oauth/authorize",
-                "http://api.twitter.com/oauth/authorize",
-                "https://api.twitter.com/oauth/authorize"
-            ],
-            "js": [
-                "lib/3rdparty/jquery.js",
-                "lib/oauth_authorizer.js"
-            ]
-        }
-    ],
     "options_page": "options.html"
 }
