@@ -1,0 +1,11 @@
+{
+  "name": "Oxidized Silver Bird",
+  "dependencies": {
+    "jquery": "~1.11"
+  },
+  "overrides": {
+    "jquery": {
+      "main": "dist/jquery.min.*"
+    }
+  }
+}

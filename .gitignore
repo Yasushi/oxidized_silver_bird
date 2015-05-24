@@ -9,3 +9,5 @@ secret_keys.js
 analytics.js
 /node_modules/
 /target/
+/bower_components/
+

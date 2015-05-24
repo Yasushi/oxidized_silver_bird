@@ -4,6 +4,12 @@ var fs = require('fs');
 var manifest = require('./manifest.json');
 var del = require('del');
 var eslint = require('gulp-eslint');
+var bowerFiles = require('main-bower-files');
+
+gulp.task('bower', function() {
+  return gulp.src(bowerFiles())
+      .pipe(gulp.dest('3rdparty'));
+});
 
 gulp.task('lint', function() {
   return gulp.src(['lib/**/*.js','!lib/3rdparty/**/*.js'])
