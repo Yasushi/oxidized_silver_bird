@@ -7,6 +7,7 @@
   "devDependencies": {
     "del": "^1.2.0",
     "gulp": "^3.8.11",
-    "gulp-crx": "pavelvanecek/gulp-crx"
+    "gulp-crx": "pavelvanecek/gulp-crx",
+    "gulp-eslint": "^0.12.0"
   }
 }

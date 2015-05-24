@@ -3,6 +3,20 @@ var crx = require('gulp-crx');
 var fs = require('fs');
 var manifest = require('./manifest.json');
 var del = require('del');
+var eslint = require('gulp-eslint');
+
+gulp.task('lint', function() {
+  return gulp.src(['lib/**/*.js','!lib/3rdparty/**/*.js'])
+    .pipe(eslint({
+      globals: {
+        "chrome": false,
+        "jQuery": false,
+        "$": false
+      },
+      envs: ["browser"]
+    }))
+    .pipe(eslint.formatEach('compact'));
+});
 
 gulp.task('copy', function() {
   return gulp.src(['manifest.json', 'LICENSE*', 'README.md',
