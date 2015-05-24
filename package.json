@@ -4,11 +4,13 @@
   "description": "Oxidized Silver Bird",
   "author": "Yasushi Abe",
   "license": "MIT",
+  "repository": "https://github.com/Yasushi/oxidized_silver_bird",
   "devDependencies": {
     "del": "^1.2.0",
     "gulp": "^3.8.11",
     "gulp-crx": "pavelvanecek/gulp-crx",
     "gulp-eslint": "^0.12.0",
+    "gulp-util": "^3.0.4",
     "main-bower-files": "^2.8.0"
   }
 }

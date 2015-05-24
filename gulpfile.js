@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var crx = require('gulp-crx');
 var fs = require('fs');
 var manifest = require('./manifest.json');
@@ -24,7 +25,22 @@ gulp.task('lint', function() {
     .pipe(eslint.formatEach('compact'));
 });
 
-gulp.task('copy', function() {
+function string_src(filename, string) {
+  var src = require('stream').Readable({ objectMode: true });
+  src._read = function () {
+    this.push(new gutil.File({ cwd: "", base: "", path: filename, contents: new Buffer(string) }));
+    this.push(null);
+  };
+  return src;
+}
+
+gulp.task('gen', function() {
+  var keys = require('./secret_keys.json');
+  return string_src("lib/secret_keys.js","var SecretKeys = { twitter:{consumerSecret:'" +keys['consumerSecret']+"',consumerKey:'"+keys['consumerKey']+"'},hasValidKeys: function() {return true;}};")
+    .pipe(gulp.dest("target/src"));
+});
+
+gulp.task('copy', ['gen'], function() {
   return gulp.src(['manifest.json', 'LICENSE*', 'README.md',
                    '*.html', '_locales/**', 'css/**', 'img/**', 'lib/**'],
                    {'cwdbase':true})
