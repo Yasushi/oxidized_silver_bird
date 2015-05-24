@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var crx = require('gulp-crx');
+var zip = require('gulp-zip');
 var fs = require('fs');
 var manifest = require('./manifest.json');
 var del = require('del');
@@ -47,10 +48,16 @@ gulp.task('copy', ['gen'], function() {
     .pipe(gulp.dest('./target/src'));
 });
 
+gulp.task('zip', ['copy'], function() {
+  return gulp.src('target/src/**/*')
+    .pipe(zip(manifest.name + "_" + manifest.version + '.zip'))
+    .pipe(gulp.dest('./target'));
+});
+
 gulp.task('crx', function() {
   return gulp.src('target/src')
     .pipe(crx({
-        privateKey: fs.readFileSync('oxidized_silver_bird.pem', 'utf8'),
+      privateKey: fs.readFileSync('oxidized_silver_bird.pem', 'utf8'),
       filename: manifest.name + "_" + manifest.version + '.crx'
     }))
     .pipe(gulp.dest('./target'));
