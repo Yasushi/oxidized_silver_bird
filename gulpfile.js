@@ -43,3 +43,7 @@ gulp.task('crx', function() {
 gulp.task('clean', function (cb) {
   del(['target', 'tmp'], cb);
 });
+
+gulp.task('watch', function() {
+  gulp.watch(['manifest.json', 'LICENSE*', 'README.md', '*.html', '_locales/**', 'css/**', 'img/**', 'lib/**','!lib/3rdparty/**/*.js'], ['copy']);
+});
