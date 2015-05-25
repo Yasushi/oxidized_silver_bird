@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var crx = require('gulp-crx');
 var zip = require('gulp-zip');
+var exec = require('gulp-exec');
 var fs = require('fs');
 var manifest = require('./manifest.json');
 var del = require('del');
@@ -69,4 +70,13 @@ gulp.task('clean', function (cb) {
 
 gulp.task('watch', function() {
   gulp.watch(['manifest.json', 'LICENSE*', 'README.md', '*.html', '_locales/**', 'css/**', 'img/**', 'lib/**','!lib/3rdparty/**/*.js'], ['copy']);
+});
+
+gulp.task('ctags', function(cb){
+  exec('ctags -e -R --exclude=node_modules  --exclude=target',
+       function (err, stdout, stderr) {
+         console.log(stdout);
+         console.log(stderr);
+         cb(err);
+       });
 });
