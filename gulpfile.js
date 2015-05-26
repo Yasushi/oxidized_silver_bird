@@ -44,6 +44,28 @@ gulp.task('gen', function() {
 gulp.task('build-3rdparty', function() {
   var b = browserify({debug: true});
   b.require('jquery');
+  b.require('jquery.ui.core');
+  b.require('jquery.ui.widget');
+  b.require('jquery.ui.mouse');
+  b.require('jquery.ui.position');
+  b.require('jquery.ui.draggable');
+  b.require('jquery.ui.resizable');
+  b.require('jquery.ui.sortable');
+  b.require('jquery.ui.autocomplete');
+  b.require('jquery.ui.tabs');
+  b.require('jquery.effects.core');
+  b.require('jquery.effects.blind');
+  b.require('jquery.effects.bounce');
+  b.require('jquery.effects.clip');
+  b.require('jquery.effects.drop');
+  b.require('jquery.effects.explode');
+  b.require('jquery.effects.fold');
+  b.require('jquery.effects.highlight');
+  b.require('jquery.effects.pulsate');
+  b.require('jquery.effects.scale');
+  b.require('jquery.effects.shake');
+  b.require('jquery.effects.slide');
+  b.require('jquery.effects.transfer');
   return b.bundle()
     .pipe(source('3rdparty.js'))
     .pipe(buffer())
