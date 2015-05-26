@@ -248,6 +248,7 @@ input[type='text'] {
 .tweet .text {
   clear: right;
   word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .tweet .user {
