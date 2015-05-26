@@ -84,7 +84,7 @@ gulp.task('copy', ['gen'], function() {
     .pipe(gulp.dest('./target/src'));
 });
 
-gulp.task('zip', ['copy'], function() {
+gulp.task('zip', ['build-3rdparty', 'copy'], function() {
   return gulp.src('target/src/**/*')
     .pipe(zip(manifest.name + "_" + manifest.version + '.zip'))
     .pipe(gulp.dest('./target'));
