@@ -13,7 +13,7 @@
           "consumerKey": "....."
         }
 
-    Run `gulp copy`.
+    Run `gulp explode`.
 
     Click Developer mode > Load unpacked extensions.
 

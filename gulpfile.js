@@ -77,14 +77,16 @@ gulp.task('build-3rdparty', function() {
 });
 
 
-gulp.task('copy', ['gen'], function() {
+gulp.task('copy', function() {
   return gulp.src(['manifest.json', 'LICENSE*', 'README.md',
                    '*.html', '_locales/**', 'css/**', 'img/**', 'lib/**'],
                    {'cwdbase':true})
     .pipe(gulp.dest('./target/src'));
 });
 
-gulp.task('zip', ['build-3rdparty', 'copy'], function() {
+gulp.task('explode', ['build-3rdparty', 'gen', 'copy']);
+
+gulp.task('zip', ['explode'], function() {
   return gulp.src('target/src/**/*')
     .pipe(zip(manifest.name + "_" + manifest.version + '.zip'))
     .pipe(gulp.dest('./target'));
