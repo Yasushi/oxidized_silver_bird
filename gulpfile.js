@@ -7,12 +7,11 @@ var fs = require('fs');
 var manifest = require('./manifest.json');
 var del = require('del');
 var eslint = require('gulp-eslint');
-var bowerFiles = require('main-bower-files');
-
-gulp.task('bower', function() {
-  return gulp.src(bowerFiles())
-      .pipe(gulp.dest('3rdparty'));
-});
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('lint', function() {
   return gulp.src(['lib/**/*.js','!lib/3rdparty/**/*.js'])
@@ -41,6 +40,20 @@ gulp.task('gen', function() {
   return string_src("lib/secret_keys.js","var SecretKeys = { twitter:{consumerSecret:'" +keys['consumerSecret']+"',consumerKey:'"+keys['consumerKey']+"'},hasValidKeys: function() {return true;}};")
     .pipe(gulp.dest("target/src"));
 });
+
+gulp.task('build-3rdparty', function() {
+  var b = browserify({debug: true});
+  b.require('jquery');
+  return b.bundle()
+    .pipe(source('3rdparty.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(uglify())
+    .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./target/src/lib'));
+});
+
 
 gulp.task('copy', ['gen'], function() {
   return gulp.src(['manifest.json', 'LICENSE*', 'README.md',

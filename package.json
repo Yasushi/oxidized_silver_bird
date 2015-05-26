@@ -5,12 +5,19 @@
   "author": "Yasushi Abe",
   "license": "MIT",
   "repository": "https://github.com/Yasushi/oxidized_silver_bird",
+  "scripts": {
+    "install": "napa"
+  },
   "devDependencies": {
+    "browserify": "^10.2.1",
+    "browserify-shim": "^3.8.7",
     "del": "^1.2.0",
     "gulp": "^3.8.11",
     "gulp-crx": "pavelvanecek/gulp-crx",
     "gulp-eslint": "^0.12.0",
     "gulp-exec": "^2.1.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "gulp-zip": "^3.0.2",
     "karma": "^0.12.32",
@@ -19,7 +26,59 @@
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
     "karma-sinon-chrome": "0.0.3",
-    "main-bower-files": "^2.8.0",
-    "power-assert": "^0.11.0"
+    "lodash": "^3.9.2",
+    "napa": "^1.2.0",
+    "power-assert": "^0.11.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "napa": {
+    "jquery": "jquery/jquery#1.6.4",
+    "jquery-ui": "jquery/jquery-ui#1.8.16"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/jquery.js",
+    "jquery.effects.blind": "./node_modules/jquery-ui/ui/jquery.effects.blind.js",
+    "jquery.effects.bounce": "./node_modules/jquery-ui/ui/jquery.effects.bounce.js",
+    "jquery.effects.clip": "./node_modules/jquery-ui/ui/jquery.effects.clip.js",
+    "jquery.effects.core": "./node_modules/jquery-ui/ui/jquery.effects.core.js",
+    "jquery.effects.drop": "./node_modules/jquery-ui/ui/jquery.effects.drop.js",
+    "jquery.effects.explode": "./node_modules/jquery-ui/ui/jquery.effects.explode.js",
+    "jquery.effects.fade": "./node_modules/jquery-ui/ui/jquery.effects.fade.js",
+    "jquery.effects.fold": "./node_modules/jquery-ui/ui/jquery.effects.fold.js",
+    "jquery.effects.highlight": "./node_modules/jquery-ui/ui/jquery.effects.highlight.js",
+    "jquery.effects.pulsate": "./node_modules/jquery-ui/ui/jquery.effects.pulsate.js",
+    "jquery.effects.scale": "./node_modules/jquery-ui/ui/jquery.effects.scale.js",
+    "jquery.effects.shake": "./node_modules/jquery-ui/ui/jquery.effects.shake.js",
+    "jquery.effects.slide": "./node_modules/jquery-ui/ui/jquery.effects.slide.js",
+    "jquery.effects.transfer": "./node_modules/jquery-ui/ui/jquery.effects.transfer.js",
+    "jquery.ui.accordion": "./node_modules/jquery-ui/ui/jquery.ui.accordion.js",
+    "jquery.ui.autocomplete": "./node_modules/jquery-ui/ui/jquery.ui.autocomplete.js",
+    "jquery.ui.button": "./node_modules/jquery-ui/ui/jquery.ui.button.js",
+    "jquery.ui.core": "./node_modules/jquery-ui/ui/jquery.ui.core.js",
+    "jquery.ui.datepicker": "./node_modules/jquery-ui/ui/jquery.ui.datepicker.js",
+    "jquery.ui.dialog": "./node_modules/jquery-ui/ui/jquery.ui.dialog.js",
+    "jquery.ui.draggable": "./node_modules/jquery-ui/ui/jquery.ui.draggable.js",
+    "jquery.ui.droppable": "./node_modules/jquery-ui/ui/jquery.ui.droppable.js",
+    "jquery.ui.mouse": "./node_modules/jquery-ui/ui/jquery.ui.mouse.js",
+    "jquery.ui.position": "./node_modules/jquery-ui/ui/jquery.ui.position.js",
+    "jquery.ui.progressbar": "./node_modules/jquery-ui/ui/jquery.ui.progressbar.js",
+    "jquery.ui.resizable": "./node_modules/jquery-ui/ui/jquery.ui.resizable.js",
+    "jquery.ui.selectable": "./node_modules/jquery-ui/ui/jquery.ui.selectable.js",
+    "jquery.ui.slider": "./node_modules/jquery-ui/ui/jquery.ui.slider.js",
+    "jquery.ui.sortable": "./node_modules/jquery-ui/ui/jquery.ui.sortable.js",
+    "jquery.ui.tabs": "./node_modules/jquery-ui/ui/jquery.ui.tabs.js",
+    "jquery.ui.widget": "./node_modules/jquery-ui/ui/jquery.ui.widget.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "jqery.ui.core": { "depends": [ "jquery" ]},
+    "jqery.ui.widget": { "depends": [ "jquery" ]}
+
   }
 }

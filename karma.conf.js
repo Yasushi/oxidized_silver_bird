@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'lib/math_utils.js',
-      'bower_components/power-assert/build/power-assert.js',
+      'node_modules/power-assert/build/power-assert.js',
       'test/**/*_spec.js'
     ],
 
