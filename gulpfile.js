@@ -64,7 +64,7 @@ function getJqueryUISrc() {
     "jquery.ui.resizable.js",
     "jquery.ui.selectable.js",
     "jquery.ui.sortable.js",
-    "jquery.effects.core.js"
+    "jquery.ui.effect.js"
   ].join(",") + "}";
 
   var dir="./node_modules/jquery-ui/ui/";
