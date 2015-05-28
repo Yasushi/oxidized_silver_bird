@@ -40,6 +40,7 @@ div.simple_select  ul {
 
 div.simple_select .options_area ul li {
   display: inherit;
+  float: none;
   position: inherit;
   border: 0;
   margin: 0;
