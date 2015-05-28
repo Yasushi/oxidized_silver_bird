@@ -122,3 +122,15 @@ div.simple_select .options_area ul li:hover {
 div.simple_select ul li.selected {
   background-color: rgb(223, 232, 246);
 }
+
+.ui-tabs .ui-tabs-panel {
+  padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+  padding: .2em .7em;
+}
+
+.ui-tabs .ui-tabs-nav li a.timeline_tab_list {
+  padding: .2em 0;
+}
