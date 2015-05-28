@@ -13,6 +13,19 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 
+function barebuffer() {
+  var through = require('through2');
+  return through.obj(function(chunk, env, cb) {
+    if (chunk.isStream()) {
+      this.emit('error', new gutil.PluginError("barebuffer", 'Cannot operate on stream'));
+    }
+    else if (chunk.isBuffer()) {
+      this.push(chunk.contents);
+    }
+    cb();
+  })
+}
+
 gulp.task('lint', function() {
   return gulp.src(['lib/**/*.js','!lib/3rdparty/**/*.js'])
     .pipe(eslint({
@@ -41,31 +54,27 @@ gulp.task('gen', function() {
     .pipe(gulp.dest("target/src"));
 });
 
+function getJqueryUISrc() {
+  var coreFiles = "{" + [
+    "jquery.ui.core.js",
+    "jquery.ui.widget.js",
+    "jquery.ui.mouse.js",
+    "jquery.ui.draggable.js",
+    "jquery.ui.droppable.js",
+    "jquery.ui.resizable.js",
+    "jquery.ui.selectable.js",
+    "jquery.ui.sortable.js",
+    "jquery.effects.core.js"
+  ].join(",") + "}";
+
+  var dir="./node_modules/jquery-ui/ui/";
+  return gulp.src([dir+coreFiles, dir+"*.js" ]).pipe(barebuffer());
+}
+
 gulp.task('build-3rdparty', function() {
   var b = browserify({debug: true});
   b.require('jquery');
-  b.require('jquery.ui.core');
-  b.require('jquery.ui.widget');
-  b.require('jquery.ui.mouse');
-  b.require('jquery.ui.position');
-  b.require('jquery.ui.draggable');
-  b.require('jquery.ui.resizable');
-  b.require('jquery.ui.sortable');
-  b.require('jquery.ui.autocomplete');
-  b.require('jquery.ui.tabs');
-  b.require('jquery.effects.core');
-  b.require('jquery.effects.blind');
-  b.require('jquery.effects.bounce');
-  b.require('jquery.effects.clip');
-  b.require('jquery.effects.drop');
-  b.require('jquery.effects.explode');
-  b.require('jquery.effects.fold');
-  b.require('jquery.effects.highlight');
-  b.require('jquery.effects.pulsate');
-  b.require('jquery.effects.scale');
-  b.require('jquery.effects.shake');
-  b.require('jquery.effects.slide');
-  b.require('jquery.effects.transfer');
+  b.require(getJqueryUISrc(), {file: 'jquery-ui.js', expose: 'jquery-ui'});
   return b.bundle()
     .pipe(source('3rdparty.js'))
     .pipe(buffer())
