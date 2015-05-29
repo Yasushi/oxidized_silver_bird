@@ -41,8 +41,8 @@
     "jquery-ui": ""
   },
   "napa": {
-    "jquery": "jquery/jquery#1.8.3",
-    "jquery-ui": "jquery/jquery-ui#1.9.2"
+    "jquery": "jquery/jquery#1.10.2",
+    "jquery-ui": "jquery/jquery-ui#1.10.4"
   },
   "browserify": {
     "transform": [
@@ -50,9 +50,9 @@
     ]
   },
   "browser": {
-    "jquery": "./node_modules/jquery/jquery.js"
+    "jquery": "./node_modules/jquery/jquery.js",
+    "jquery-migrate": "./lib/3rdparty/jquery-migrate-1.2.1.js"
   },
   "browserify-shim": {
-    "jquery": "$"
   }
 }

@@ -74,6 +74,7 @@ function getJqueryUISrc() {
 gulp.task('build-3rdparty', function() {
   var b = browserify({debug: true});
   b.require('jquery');
+  b.require('jquery-migrate');
   b.require(getJqueryUISrc(), {file: 'jquery-ui.js', expose: 'jquery-ui'});
   b.require('twitter-text');
   return b.bundle()
