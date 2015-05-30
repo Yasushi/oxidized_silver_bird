@@ -42,7 +42,7 @@
   },
   "napa": {
     "jquery": "jquery/jquery#1.10.2",
-    "jquery-ui": "jquery/jquery-ui#1.10.4"
+    "jquery-ui": "jquery/jquery-ui#1.11.4"
   },
   "browserify": {
     "transform": [

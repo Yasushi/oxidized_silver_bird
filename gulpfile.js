@@ -56,19 +56,19 @@ gulp.task('gen', function() {
 
 function getJqueryUISrc() {
   var coreFiles = "{" + [
-    "jquery.ui.core.js",
-    "jquery.ui.widget.js",
-    "jquery.ui.mouse.js",
-    "jquery.ui.draggable.js",
-    "jquery.ui.droppable.js",
-    "jquery.ui.resizable.js",
-    "jquery.ui.selectable.js",
-    "jquery.ui.sortable.js",
-    "jquery.ui.effect.js"
+    "core.js",
+    "widget.js",
+    "mouse.js",
+    "draggable.js",
+    "droppable.js",
+    "resizable.js",
+    "selectable.js",
+    "sortable.js",
+    "effect.js"
   ].join(",") + "}";
 
   var dir="./node_modules/jquery-ui/ui/";
-  return gulp.src([dir+coreFiles, dir+"*.js" ]).pipe(barebuffer());
+  return gulp.src([dir+coreFiles, dir+"*.js" ], {nosort: true}).pipe(barebuffer());
 }
 
 gulp.task('build-3rdparty', function() {

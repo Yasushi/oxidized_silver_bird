@@ -1,0 +1,11 @@
+.ui-tabs .ui-tabs-panel {
+  padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  padding: .2em .7em;
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor.timeline_tab_list {
+  padding: .2em 0;
+}
