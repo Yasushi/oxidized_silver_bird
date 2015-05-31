@@ -38,7 +38,15 @@
     <span class="i18n" id="remaining_api_hits">Remaining Twitter API Hits: </span><span class="twitter_hits_left"></span><br>
     <span class="i18n" id="rate_limit_reset">Rate Limit Reset: </span><span class="twitter_hits_reset"></span>
     <a id="nerds_link" href="#" class="i18n">API Hits stats (for nerds)</a>
-    <canvas id="nerds" width="650" height="500" style="display: none;"></canvas>
+    <table id="rate_limit_status" style="display: none;">
+      <thead>
+        <th>Endpoint</th>
+        <th>Remaining/Limit</th>
+        <th>reset</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </p>
   <fieldset>
     <legend id="g_ui" class="i18n">UI</legend>
