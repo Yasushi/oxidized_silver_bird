@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'lib/math_utils.js',
+      'lib/tweet_transforms.js',
       'node_modules/power-assert/build/power-assert.js',
       'test/**/*_spec.js'
     ],
@@ -29,15 +30,31 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.js': ['espower']
+      '**/*.js': ['espower'],
+      'lib/**/*.js': ['coverage']
     },
 
+    // espowerPreprocessor: {
+    //   options: {
+    //     // emit espowerified code.
+    //     // default: false (in-memory)
+    //     emitActualCode: true
+    //   },
+    //   transformPath: function(path) {
+    //     // default
+    //     return path.replace(/\.js$/, '.espowered.js');
+    //   }
+    // },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,
