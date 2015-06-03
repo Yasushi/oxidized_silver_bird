@@ -77,6 +77,7 @@ gulp.task('build-3rdparty', function() {
   b.require('jquery-migrate');
   b.require(getJqueryUISrc(), {file: 'jquery-ui.js', expose: 'jquery-ui'});
   b.require('twitter-text');
+  b.require('immutable');
   return b.bundle()
     .pipe(source('3rdparty.js'))
     .pipe(buffer())
