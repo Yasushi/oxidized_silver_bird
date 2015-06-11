@@ -1,11 +1,6 @@
-/*global describe it chrome assert*/
+/*global describe it chrome*/
 
-// describe("browser action", function() {
-//     it("should create a new tab", function() {
-//         chrome.browserAction.onClicked.trigger();
-//         expect(chrome.tabs.create.called).toBe(true);
-//     });
-// });
+var assert = require('power-assert');
 
 describe("math", function() {
   it("linear function", function() {

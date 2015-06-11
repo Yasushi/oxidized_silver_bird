@@ -12,6 +12,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var es = require('event-stream');
 
 function barebuffer() {
   var through = require('through2');
@@ -88,15 +89,31 @@ gulp.task('build-3rdparty', function() {
     .pipe(gulp.dest('./target/src/lib'));
 });
 
+function bsdest(filename, bs) {
+  return bs.bundle()
+    .pipe(source(filename))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./target/src/lib'));
+}
+
+gulp.task('build-lib', function() {
+  return es.merge([bsdest('persistence.js',
+                          browserify({debug: true, standalone: 'Persistence'})
+                          .add("./lib/persistence.js"))
+                  ]);
+});
 
 gulp.task('copy', function() {
   return gulp.src(['manifest.json', 'LICENSE*', 'README.md',
-                   '*.html', '_locales/**', 'css/**', 'img/**', 'lib/**'],
+                   '*.html', '_locales/**', 'css/**', 'img/**',
+                   'lib/**', '!lib/persistence*'],
                    {'cwdbase':true})
     .pipe(gulp.dest('./target/src'));
 });
 
-gulp.task('explode', ['build-3rdparty', 'gen', 'copy']);
+gulp.task('explode', ['build-3rdparty', 'gen', 'copy', 'build-lib']);
 
 gulp.task('zip', ['explode'], function() {
   return gulp.src('target/src/**/*')

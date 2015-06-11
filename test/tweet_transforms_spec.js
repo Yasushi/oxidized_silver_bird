@@ -1,4 +1,7 @@
-/*global describe it chrome assert*/
+/*global describe it chrome*/
+
+var assert = require('power-assert');
+var Transforms = require('../lib/tweet_transforms');
 
 describe("Transforms", function() {
   describe("transformEntities", function() {
