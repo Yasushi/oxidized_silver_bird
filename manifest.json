@@ -18,7 +18,6 @@
 
         "lib/secret_keys.js",
 
-        "lib/math_utils.js",
         "lib/persistence.js",
         "lib/twitter_lib.js",
         "lib/icon_creator.js",
