@@ -19,6 +19,7 @@
     "del": "^1.2.0",
     "espowerify": "^0.10.0",
     "event-stream": "^3.3.1",
+    "factor-bundle": "^2.4.1",
     "gulp": "^3.8.11",
     "gulp-crx": "pavelvanecek/gulp-crx",
     "gulp-eslint": "^0.12.0",
@@ -60,5 +61,5 @@
     "jquery": "./node_modules/jquery/dist/jquery.js",
     "jquery-migrate": "./lib/3rdparty/jquery-migrate-1.2.1.js"
   },
-  "browserify-shim": {}
+  "browserify-shim": "shim.js"
 }

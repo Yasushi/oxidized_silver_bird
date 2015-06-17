@@ -51,7 +51,8 @@ function string_src(filename, string) {
 
 gulp.task('gen', function() {
   var keys = require('./secret_keys.json');
-  return string_src("lib/secret_keys.js","var SecretKeys = { twitter:{consumerSecret:'" +keys['consumerSecret']+"',consumerKey:'"+keys['consumerKey']+"'},hasValidKeys: function() {return true;}};")
+  var src = "(function (root, factory) {if (typeof define === 'function' && define.amd) {define([], factory);} else if (typeof exports === 'object') {module.exports = factory();} else {root.SecretKeys = factory();}}(this, function () {return {twitter:{consumerSecret:'" + keys['consumerSecret'] + "',consumerKey:'" + keys['consumerKey'] + "'},hasValidKeys: function() {return true;}};}));";
+  return string_src("lib/secret_keys.js",src)
     .pipe(gulp.dest("target/src"));
 });
 

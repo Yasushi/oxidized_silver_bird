@@ -5,17 +5,17 @@ var proxyquire = require('proxyquireify')(require);
 
 
 describe("Persistence", function() {
-    beforeEach(function(){
-      this.localStorage = {
-        removeItem: function(key){ delete this[key]; }
-      };
-      var stub = {
-        './persistence_require': {
-          localStorage: this.localStorage
-        }
-      };
-      this.Persistence = proxyquire('../lib/persistence.js', stub);
-    });
+  beforeEach(function(){
+    this.localStorage = {
+      removeItem: function(key){ delete this[key]; }
+    };
+    var stub = {
+      './persistence_require': {
+        localStorage: this.localStorage
+      }
+    };
+    this.Persistence = proxyquire('../lib/persistence.js', stub);
+  });
   describe("defined", function() {
     it("object", function() {
       assert(typeof this.Persistence === 'object');
