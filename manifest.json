@@ -26,7 +26,15 @@
 
         "lib/stream_listener.js",
 
-        "lib/timeline_factory.js",
+        "lib/base_timeline_factory.js",
+        "lib/default_timeline_factory.js",
+        "lib/dm_timeline_factory.js",
+        "lib/favorites_timeline_factory.js",
+        "lib/unified_dms_timeline_factory.js",
+        "lib/unified_timeline_factory.js",
+        "lib/multiple_timeline_factory.js",
+        "lib/lists_timeline_factory.js",
+        "lib/search_timeline_factory.js",
         "lib/timeline_template.js",
 
         "lib/timelines/timeline.js",
