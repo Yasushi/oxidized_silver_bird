@@ -13,6 +13,7 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var es = require('event-stream');
+var utf8ize = require('gulp-utf8ize-sourcemaps');
 
 function barebuffer() {
   var through = require('through2');
@@ -84,9 +85,10 @@ gulp.task('build-3rdparty', function() {
     .pipe(source('3rdparty.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(uglify())
+    .pipe(uglify({output: {ascii_only: true}}))
     .on('error', gutil.log)
-    .pipe(sourcemaps.write('./'))
+    .pipe(sourcemaps.write())
+    .pipe(utf8ize())
     .pipe(gulp.dest('./target/src/lib'));
 });
 
