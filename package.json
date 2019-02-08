@@ -38,7 +38,7 @@
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
     "karma-sinon-chrome": "0.0.3",
-    "lodash": "^4.17.5",
+    "lodash": ">=4.17.11",
     "napa": "^1.2.0",
     "power-assert": "^0.11.0",
     "proxyquireify": "^2.1.0",
